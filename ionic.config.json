@@ -1,0 +1,7 @@
+{
+  "name": "flixfy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
