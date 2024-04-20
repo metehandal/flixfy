@@ -124,19 +124,15 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@ionic/angular-toolkit"
-    ]
+    "schematicCollections": ["@ionic/angular-toolkit"],
+    "analytics": "7d8061f8-b0dc-4d0b-8abc-cc1b0d0d7680"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

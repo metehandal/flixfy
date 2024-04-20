@@ -1,2 +1,51 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:root {
+  --ion-color-flixfy-main: #f8d458;
+  --ion-color-flixfy-main-rgb: 248, 212, 88;
+  --ion-color-flixfy-main-contrast: #000000;
+  --ion-color-flixfy-main-contrast-rgb: 0, 0, 0;
+  --ion-color-flixfy-main-shade: #dabb4d;
+  --ion-color-flixfy-main-tint: #f9d869;
+
+  --ion-color-flixfy-dark: #17181b;
+  --ion-color-flixfy-dark-rgb: 23, 24, 27;
+  --ion-color-flixfy-dark-contrast: #ffffff;
+  --ion-color-flixfy-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-flixfy-dark-shade: #141518;
+  --ion-color-flixfy-dark-tint: #2e2f32;
+
+  --ion-color-flixfy-light: #eef1f4;
+  --ion-color-flixfy-light-rgb: 238, 241, 244;
+  --ion-color-flixfy-light-contrast: #000000;
+  --ion-color-flixfy-light-contrast-rgb: 0, 0, 0;
+  --ion-color-flixfy-light-shade: #d1d4d7;
+  --ion-color-flixfy-light-tint: #f0f2f5;
+}
+
+.ion-color-flixfy-main {
+  --ion-color-base: var(--ion-color-flixfy-main);
+  --ion-color-base-rgb: var(--ion-color-flixfy-main-rgb);
+  --ion-color-contrast: var(--ion-color-flixfy-main-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-flixfy-main-contrast-rgb);
+  --ion-color-shade: var(--ion-color-flixfy-main-shade);
+  --ion-color-tint: var(--ion-color-flixfy-main-tint);
+}
+
+.ion-color-flixfy-dark {
+  --ion-color-base: var(--ion-color-flixfy-dark);
+  --ion-color-base-rgb: var(--ion-color-flixfy-dark-rgb);
+  --ion-color-contrast: var(--ion-color-flixfy-dark-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-flixfy-dark-contrast-rgb);
+  --ion-color-shade: var(--ion-color-flixfy-dark-shade);
+  --ion-color-tint: var(--ion-color-flixfy-dark-tint);
+}
+
+.ion-color-flixfy-light {
+  --ion-color-base: var(--ion-color-flixfy-light);
+  --ion-color-base-rgb: var(--ion-color-flixfy-light-rgb);
+  --ion-color-contrast: var(--ion-color-flixfy-light-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-flixfy-light-contrast-rgb);
+  --ion-color-shade: var(--ion-color-flixfy-light-shade);
+  --ion-color-tint: var(--ion-color-flixfy-light-tint);
+}

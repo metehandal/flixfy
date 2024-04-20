@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="logoBox">
+      <ion-img
+        style="width: 50px; height: 50px"
+        src="../../../assets/icon/logo.svg"
+      ></ion-img>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-menu-button color="flixfy-main"> </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- banner popular swiper slide
+    effect="coverflow"
+    [spaceBetween]="60"
+    [coverflowEffect]="{ rotate: 0, stretch: 10, depth: 200, modifier: 1, slideShadows: true }"
+    [grabCursor]="true"
+    [slidesPerView]="1.5"
+    [centeredSlides]="true"
+    [pagination]="false"
+    [loop]="true" -->
+  <swiper-container
+    class="bannerSwiper"
+    effect="coverflow"
+    [coverflowEffect]="{ rotate: 0, stretch: 10, depth: 200, modifier: 1, slideShadows: false }"
+    [slidesPerView]="1.5"
+    [centeredSlides]="true"
+    [spaceBetween]="60"
+    (swiperslidechange)="onSlideChange()"
+    [scrollbar]="true"
+    #swiper
+  >
+    <swiper-slide *ngFor="let movie of popular">
+      <div class="bannerContainer">
+        <div class="imgBox">
+          <img
+            class="poster"
+            [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+          />
+        </div>
+
+        <div class="textBox">
+          <div class="upper">
+            <div class="vote">
+              <div class="avarage">
+                <!-- <ion-icon name="star" color="flixfy-main"></ion-icon> -->
+                <span>IMDb {{ movie.vote_average | number : "1.1-1" }}</span>
+              </div>
+
+              <div class="popularity">
+                <ion-icon name="heart" color="danger"></ion-icon>
+                <span>{{ movie.popularity }}</span>
+              </div>
+            </div>
+
+            <div class="relaseDateAndlang">
+              <span>{{ movie.release_date }}</span>
+              <span>{{ movie.original_language }}</span>
+            </div>
+          </div>
+
+          <!-- <div class="play">
+            <ion-icon name="play-outline"></ion-icon>
+          </div> -->
+
+          <div class="title">
+            <h1>{{ movie.original_title }}</h1>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- genres segment -->
+  <div class="genres">
+    <ion-segment
+      [scrollable]="true"
+      [value]="genres[0]?.id"
+      (ionChange)="getMoviesBySelectedGenre($event)"
+    >
+      @for (genre of genres; track $index) {
+      <ion-segment-button [value]="genre.id">
+        <ion-label> {{ genre.name }} </ion-label>
+      </ion-segment-button>
+      }
+    </ion-segment>
+  </div>
+
+  <!-- moview by genre -->
+  <div class="genre moviesContainer">
+    <swiper-container [slidesPerView]="4" [spaceBetween]="10">
+      <swiper-slide *ngFor="let movie of moviesByGenre">
+        <div class="genreBox">
+          <div class="imgBox">
+            <img
+              class="poster"
+              [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+            />
+
+            <div class="rating">
+              <ion-icon name="star" color="warning"></ion-icon>
+              <span>{{ movie.vote_average | number : "1.1-1" }}</span>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+
+  <app-category [title]="'Top Rated'" [movies]="topRated"></app-category>
+  <app-category [title]="'Popular'" [movies]="popular"></app-category>
+  <app-category [title]="'Upcoming'" [movies]="upComing"></app-category>
+</ion-content>

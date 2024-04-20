@@ -1,0 +1,26 @@
+<div class="category">
+  <div class="title" button (click)="goCategory(title)">
+    <h1>{{ title }}</h1>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </div>
+
+  <div class="moviesContainer">
+    <swiper-container [slidesPerView]="4" [spaceBetween]="10">
+      <swiper-slide *ngFor="let movie of movies">
+        <div class="moviesWrapper">
+          <div class="imgBox">
+            <img
+              class="poster"
+              [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+            />
+
+            <div class="rating">
+              <ion-icon name="star" color="warning"></ion-icon>
+              <span>{{ movie.vote_average | number : "1.1-1" }}</span>
+            </div>
+          </div>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+</div>
