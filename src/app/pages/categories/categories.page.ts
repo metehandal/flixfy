@@ -32,9 +32,19 @@ export class CategoriesPage implements OnInit {
         this.getUpcomingMovies();
         break;
       default:
-        console.log('No category selected');
+        // genre movies
+        // adventure-id
+        const genreId = category.split('-')[1];
+        this.getMoviesByGenre(genreId);
+        this.categoryName = category.split('-')[0];
         break;
     }
+  }
+
+  getMoviesByGenre(genreId: any) {
+    this.moviesService.getMoviesByGenre(genreId).subscribe((data) => {
+      this.category = data.results;
+    });
   }
 
   getPopularMovies() {

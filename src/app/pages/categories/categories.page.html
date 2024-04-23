@@ -17,6 +17,16 @@
           <img
             [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
           />
+          <div class="vote">
+            <div class="avarage">
+              <span>IMDb {{ movie.vote_average | number : "1.1-1" }}</span>
+            </div>
+
+            <div class="popularity">
+              <ion-icon name="heart" color="danger"></ion-icon>
+              <span>{{ movie.popularity }}</span>
+            </div>
+          </div>
           <ion-card-content>
             <ion-item lines="none">
               <ion-label>

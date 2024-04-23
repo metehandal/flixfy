@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Movies </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-category-movies
+    [title]="'Top Rated'"
+    [movies]="topRated"
+  ></app-category-movies>
+  <app-category-movies
+    [title]="'Popular'"
+    [movies]="popular"
+  ></app-category-movies>
+  <app-category-movies
+    [title]="'Upcoming'"
+    [movies]="upComing"
+  ></app-category-movies>
+</ion-content>

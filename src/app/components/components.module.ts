@@ -2,12 +2,13 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { CategoryComponent } from './category/category.component';
+import { CategoryMovies } from './movies/category/category.component';
+import { CategoryTvShows } from './tv-shows/category/category.component';
 
 @NgModule({
-  declarations: [CategoryComponent],
+  declarations: [CategoryMovies, CategoryTvShows],
   imports: [CommonModule, IonicModule, RouterModule],
-  exports: [CategoryComponent],
+  exports: [CategoryMovies, CategoryTvShows],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}

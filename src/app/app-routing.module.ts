@@ -14,7 +14,22 @@ const routes: Routes = [
   },
   {
     path: 'categories',
-    loadChildren: () => import('./pages/categories/categories.module').then( m => m.CategoriesPageModule)
+    loadChildren: () =>
+      import('./pages/categories/categories.module').then(
+        (m) => m.CategoriesPageModule
+      ),
+  },
+  {
+    path: 'movies',
+    loadChildren: () =>
+      import('./pages/movies/movies.module').then((m) => m.MoviesPageModule),
+  },
+  {
+    path: 'tv-shows',
+    loadChildren: () =>
+      import('./pages/tv-shows/tv-shows.module').then(
+        (m) => m.TvShowsPageModule
+      ),
   },
 ];
 

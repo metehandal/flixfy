@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Tv Shows </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-category-tv-shows
+    [title]="'Top Rated'"
+    [tvshows]="topRated"
+  ></app-category-tv-shows>
+  <app-category-tv-shows
+    [title]="'Popular'"
+    [tvshows]="popular"
+  ></app-category-tv-shows>
+  <app-category-tv-shows
+    [title]="'On The Air'"
+    [tvshows]="onTheAir"
+  ></app-category-tv-shows>
+</ion-content>

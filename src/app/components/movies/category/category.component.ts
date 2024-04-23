@@ -2,11 +2,11 @@ import { Component, Input, OnInit, input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-category',
+  selector: 'app-category-movies',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
 })
-export class CategoryComponent implements OnInit {
+export class CategoryMovies implements OnInit {
   @Input() title?: string;
   @Input() movies?: any[];
 

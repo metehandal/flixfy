@@ -13,6 +13,25 @@ ion-header {
       }
     }
   }
+
+  .selectToolbar {
+    ion-buttons {
+      ion-button {
+        border-radius: 10px;
+        border: 1px solid var(--ion-color-medium);
+
+        ion-icon {
+          color: var(--ion-color-flixfy-light);
+          font-size: 18px;
+        }
+
+        ion-label {
+          color: var(--ion-color-medium);
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }
 
 .bannerSwiper {
@@ -266,4 +285,8 @@ ion-header {
       }
     }
   }
+}
+
+ion-spinner {
+  --color: var(--ion-color-flixfy-main);
 }

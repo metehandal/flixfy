@@ -85,4 +85,53 @@ export class MoviesService {
       )
       .pipe(catchError(this.handleError));
   }
+
+  // tv shows
+  getPopularTvShows(): Observable<any> {
+    return this.http
+      .get(`${this.baseUrl}tv/popular?api_key=${this.apiKey}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getTopRatedTvShows(): Observable<any> {
+    return this.http
+      .get(`${this.baseUrl}tv/top_rated?api_key=${this.apiKey}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getOnTheAirTvShows(): Observable<any> {
+    return this.http
+      .get(`${this.baseUrl}tv/on_the_air?api_key=${this.apiKey}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getTvShowDetails(id: number): Observable<any> {
+    return this.http
+      .get(`${this.baseUrl}tv/${id}?api_key=${this.apiKey}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getTvShowCredits(id: number): Observable<any> {
+    return this.http
+      .get(`${this.baseUrl}tv/${id}/credits?api_key=${this.apiKey}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getTvShowReviews(id: number): Observable<any> {
+    return this.http
+      .get(`${this.baseUrl}tv/${id}/reviews?api_key=${this.apiKey}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getTvShowVideos(id: number): Observable<any> {
+    return this.http
+      .get(`${this.baseUrl}tv/${id}/videos?api_key=${this.apiKey}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getTvShowImages(id: number): Observable<any> {
+    return this.http
+      .get(`${this.baseUrl}tv/${id}/images?api_key=${this.apiKey}`)
+      .pipe(catchError(this.handleError));
+  }
 }

@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header mode="ios">
   <ion-toolbar>
     <div class="logoBox">
       <ion-img
@@ -11,18 +11,35 @@
       <ion-menu-button color="flixfy-main"> </ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
+  <ion-toolbar class="selectToolbar">
+    <ion-buttons slot="start">
+      <!-- movies button -->
+      <ion-button fill="clear" (click)="navigateTo('movies')">
+        <ion-icon slot="start" name="film-outline"></ion-icon>
+        <ion-label>Movies</ion-label>
+      </ion-button>
+
+      <!-- series button -->
+      <ion-button fill="clear" (click)="navigateTo('tv-shows')">
+        <ion-icon slot="start" name="tv-outline"></ion-icon>
+        <ion-label>Tv Shows</ion-label>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <!-- categories -->
+      <ion-button fill="clear" (click)="pickCategory()">
+        <ion-icon slot="end" [name]="'chevron-down-outline'"></ion-icon>
+        <ion-label>Categories</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- banner popular swiper slide
-    effect="coverflow"
-    [spaceBetween]="60"
-    [coverflowEffect]="{ rotate: 0, stretch: 10, depth: 200, modifier: 1, slideShadows: true }"
-    [grabCursor]="true"
-    [slidesPerView]="1.5"
-    [centeredSlides]="true"
-    [pagination]="false"
-    [loop]="true" -->
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <swiper-container
     class="bannerSwiper"
     effect="coverflow"
@@ -111,7 +128,16 @@
     </swiper-container>
   </div>
 
-  <app-category [title]="'Top Rated'" [movies]="topRated"></app-category>
-  <app-category [title]="'Popular'" [movies]="popular"></app-category>
-  <app-category [title]="'Upcoming'" [movies]="upComing"></app-category>
+  <app-category-movies
+    [title]="'Top Rated'"
+    [movies]="topRated"
+  ></app-category-movies>
+  <app-category-movies
+    [title]="'Popular'"
+    [movies]="popular"
+  ></app-category-movies>
+  <app-category-movies
+    [title]="'Upcoming'"
+    [movies]="upComing"
+  ></app-category-movies>
 </ion-content>
