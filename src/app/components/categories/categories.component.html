@@ -1,0 +1,17 @@
+<ion-content [fullscreen]="true">
+  <ion-row>
+    <ion-col size="12" *ngFor="let genre of genres" (click)="openGenre(genre)">
+      <h1>
+        {{ genre.name }}
+      </h1>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer class="ion-text-center ion-no-border">
+  <ion-toolbar>
+    <ion-button (click)="dismiss()" fill="clear" color="light">
+      <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

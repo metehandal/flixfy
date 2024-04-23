@@ -17,4 +17,8 @@ export class CategoryMovies implements OnInit {
   goCategory(categoryName: any) {
     this.router.navigate(['/categories', categoryName]);
   }
+
+  goMovie(movieId: any) {
+    this.router.navigate(['/movies', movieId]);
+  }
 }

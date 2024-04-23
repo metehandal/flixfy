@@ -6,7 +6,7 @@
 
   <div class="moviesContainer">
     <swiper-container [slidesPerView]="4" [spaceBetween]="10">
-      <swiper-slide *ngFor="let movie of movies">
+      <swiper-slide *ngFor="let movie of movies" (click)="goMovie(movie.id)">
         <div class="moviesWrapper">
           <div class="imgBox">
             <img

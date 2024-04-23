@@ -31,6 +31,10 @@ const routes: Routes = [
         (m) => m.TvShowsPageModule
       ),
   },
+  {
+    path: 'genres',
+    loadChildren: () => import('./pages/genres/genres.module').then( m => m.GenresPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,40 @@
+ion-row {
+  height: max-content;
+  padding: 70px 0;
+  margin: 20px;
+  ion-col {
+    text-align: center;
+    h1 {
+      color: var(--ion-color-flixfy-light);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: var(--ion-color-flixfy-main);
+      }
+    }
+  }
+}
+
+ion-toolbar {
+  min-height: 126px;
+  --background: linear-gradient(
+    180deg,
+    rgba(var(--ion-color-flixfy-dark-rgb), 0) 0%,
+    rgba(var(--ion-color-flixfy-dark-rgb), 1) 50%
+  ) !important;
+  --border-style: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-button {
+    ion-icon {
+      font-size: 4.5rem;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<ion-header class="detailHeader ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/movies"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="danger">
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="backdrop">
+    <div class="poster">
+      <img
+        [src]="'https://image.tmdb.org/t/p/original/' +  movieData?.poster_path"
+        alt="movie.title"
+      />
+    </div>
+
+    <div class="movieDetails">
+      <div class="title">
+        <h1>{{ movieData?.title }}</h1>
+        <span> IMDb {{ movieData?.vote_average | number : "1.1-1" }} </span>
+      </div>
+
+      <div class="genres">
+        <span *ngFor="let genre of movieData?.genres"> {{ genre.name }} </span>
+      </div>
+
+      <div class="overview">
+        <p>{{ movieData?.overview }}</p>
+
+        <div class="release">
+          <span>Release Date: {{ movieData?.release_date }}</span>
+
+          <span>Popularity: {{ movieData?.popularity }}</span>
+
+          <span>Vote Count: {{ movieData?.vote_count }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

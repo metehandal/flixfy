@@ -6,7 +6,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { PickerController } from '@ionic/angular';
+import { ModalController, PickerController } from '@ionic/angular';
+import { CategoriesComponent } from 'src/app/components/categories/categories.component';
 import { MoviesService } from 'src/app/services/movies.service';
 import { register } from 'swiper/element/bundle';
 register();
@@ -27,7 +28,8 @@ export class HomePage implements OnInit, AfterViewInit {
   constructor(
     private moviesService: MoviesService,
     private pickerCtrl: PickerController,
-    private route: Router
+    private route: Router,
+    private modalCtrl: ModalController
   ) {}
 
   handleRefresh(event: any) {
@@ -65,31 +67,39 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   async pickCategory() {
-    const picker = await this.pickerCtrl.create({
-      columns: [
-        {
-          name: 'categories',
-          options: this.genres.map((genre) => {
-            return { text: genre.name, value: genre.name + '-' + genre.id };
-          }),
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-        },
-        {
-          text: 'Ok',
-          handler: (value) => {
-            this.route.navigate(['/categories', value.categories.value]);
-          },
-        },
-      ],
-      cssClass: 'flixfy-picker',
-      mode: 'md',
+    const modal = await this.modalCtrl.create({
+      cssClass: 'flixfy-modal',
+      component: CategoriesComponent,
+      componentProps: { genres: this.genres },
     });
-    await picker.present();
+
+    await modal.present();
+
+    // const picker = await this.pickerCtrl.create({
+    //   columns: [
+    //     {
+    //       name: 'categories',
+    //       options: this.genres.map((genre) => {
+    //         return { text: genre.name, value: genre.name + '-' + genre.id };
+    //       }),
+    //     },
+    //   ],
+    //   buttons: [
+    //     {
+    //       text: 'Cancel',
+    //       role: 'cancel',
+    //     },
+    //     {
+    //       text: 'Ok',
+    //       handler: (value) => {
+    //         this.route.navigate(['/categories', value.categories.value]);
+    //       },
+    //     },
+    //   ],
+    //   cssClass: 'flixfy-picker',
+    //   mode: 'md',
+    // });
+    // await picker.present();
   }
 
   categoriesMovies() {

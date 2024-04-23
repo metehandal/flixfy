@@ -82,3 +82,12 @@ ion-item {
     color: var(--ion-color-flixfy-main);
   }
 }
+
+.flixfy-modal {
+  --background: rgba(var(--ion-color-flixfy-dark-rgb), 0.7);
+  backdrop-filter: blur(12px);
+
+  ion-content {
+    --background: transparent;
+  }
+}

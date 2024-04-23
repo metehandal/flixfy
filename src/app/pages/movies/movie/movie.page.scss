@@ -1,0 +1,116 @@
+.detailHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  ion-toolbar {
+    --background: transparent;
+    --border-color: transparent;
+    --border: none;
+  }
+
+  ion-buttons {
+    background: rgba(var(--ion-color-flixfy-dark-rgb), 0.5);
+    --color: var(--ion-color-light);
+    border-radius: 10px;
+
+    ion-icon {
+      --color: var(--ion-color-light);
+    }
+  }
+}
+
+ion-content {
+  .backdrop {
+    .poster {
+      height: 300px;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(var(--ion-color-flixfy-dark-rgb), 0) 0%,
+          rgba(var(--ion-color-flixfy-dark-rgb), 1) 100%
+        );
+        z-index: 1;
+      }
+    }
+
+    .movieDetails {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      background: var(--ion-color-flixfy-dark);
+
+      .title {
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+          color: var(--ion-color-light);
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        span {
+          background: var(--ion-color-flixfy-main);
+          padding: 5px;
+          border-radius: 5px;
+          font-weight: bold;
+          color: var(--ion-color-flixfy-dark);
+        }
+      }
+
+      .genres {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+
+        span {
+          background: var(--ion-color-flixfy-light);
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 0.7rem;
+          color: var(--ion-color-flixfy-dark);
+        }
+      }
+
+      .overview {
+        p {
+          color: var(--ion-color-medium);
+          font-size: 1rem;
+          margin-top: 10px;
+          line-height: 25px;
+        }
+
+        .release {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 10px;
+
+          span {
+            color: var(--ion-color-light);
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
