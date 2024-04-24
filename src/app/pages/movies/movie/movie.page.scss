@@ -57,7 +57,6 @@ ion-content {
       background: var(--ion-color-flixfy-dark);
 
       .title {
-        height: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -68,12 +67,37 @@ ion-content {
           font-weight: bold;
         }
 
-        span {
-          background: var(--ion-color-flixfy-main);
-          padding: 5px;
-          border-radius: 5px;
-          font-weight: bold;
-          color: var(--ion-color-flixfy-dark);
+        div.vote {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          ion-icon {
+            --color: var(--ion-color-light);
+          }
+
+          span {
+            color: var(--ion-color-light);
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .bread-crumbs {
+        ion-breadcrumbs {
+          padding: 5px 0;
+
+          ion-breadcrumb {
+            font-size: 11px;
+            --color: var(--ion-color-light);
+            --color-active: var(--ion-color-flixfy-main);
+            --color-hover: var(--ion-color-flixfy-main);
+
+            ion-icon {
+              font-size: 13px;
+              color: var(--ion-color-light);
+            }
+          }
         }
       }
 
@@ -106,8 +130,95 @@ ion-content {
           margin-top: 10px;
 
           span {
-            color: var(--ion-color-light);
+            background: var(--ion-color-flixfy-light);
+            padding: 5px;
+            border-radius: 5px;
             font-size: 0.7rem;
+          }
+        }
+      }
+
+      .actions {
+        margin-top: 20px;
+      }
+    }
+
+    .credits {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+      background: var(--ion-color-flixfy-dark);
+      padding: 20px;
+
+      .cast,
+      .crew {
+        h3 {
+          color: var(--ion-color-light);
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+
+        ion-item {
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+
+          ion-avatar {
+            --border-radius: 10px;
+          }
+
+          ion-label {
+            color: var(--ion-color-light);
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .productionComp {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 20px;
+      background: var(--ion-color-flixfy-dark);
+
+      h2 {
+        color: var(--ion-color-light);
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+
+      swiper-container {
+        width: 100%;
+        height: auto;
+        swiper-slide {
+          .company {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(var(--ion-color-flixfy-light-rgb), 1);
+            border: 1px solid var(--ion-color-flixfy-light);
+            padding: 10px;
+            border-radius: 10px;
+
+            img {
+              width: 50px;
+              height: 50px;
+              object-fit: contain;
+            }
+
+            h3 {
+              color: var(--ion-color-flixfy-dark);
+              font-size: 1rem;
+              margin-top: 5px;
+            }
           }
         }
       }

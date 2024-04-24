@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class CategoriesPage implements OnInit {
   category: any[] = [];
   constructor(
     private activatedRoute: ActivatedRoute,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private route: Router
   ) {
     this.activatedRoute.params.subscribe((params: any) => {
       this.categoryName = params.categoryName;
@@ -39,6 +40,10 @@ export class CategoriesPage implements OnInit {
         this.categoryName = category.split('-')[0];
         break;
     }
+  }
+
+  goMovieDetails(movieId: number) {
+    this.route.navigate(['/movies', movieId]);
   }
 
   getMoviesByGenre(genreId: any) {

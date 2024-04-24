@@ -10,6 +10,11 @@ import { MoviesService } from 'src/app/services/movies.service';
 export class MoviePage implements OnInit, AfterViewInit {
   movieId: any;
   movieData: any;
+  credits: any;
+  reviews: any;
+  videos: any;
+  images: any;
+  recommendations: any;
   constructor(
     private activatedRoute: ActivatedRoute,
     private moviesService: MoviesService
@@ -20,11 +25,16 @@ export class MoviePage implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.getMovie();
+    // this.getMovie();
   }
 
   ngOnInit() {
-    // this.getMovie();
+    this.getMovie();
+    this.getMovieCredits();
+    this.getMovieReviews();
+    this.getMovieVideos();
+    this.getMovieImages();
+    this.getMovieRecommendations();
   }
 
   getMovie() {
@@ -34,5 +44,52 @@ export class MoviePage implements OnInit, AfterViewInit {
         this.movieData = data;
       }
     });
+  }
+
+  getMovieCredits() {
+    this.moviesService.getMovieCredits(this.movieId).subscribe((data) => {
+      console.log(data, 'credits');
+      if (data) {
+        this.credits = data;
+      }
+    });
+  }
+
+  getMovieReviews() {
+    this.moviesService.getMovieReviews(this.movieId).subscribe((data) => {
+      console.log(data, 'reviews');
+      if (data) {
+        this.reviews = data;
+      }
+    });
+  }
+
+  getMovieVideos() {
+    this.moviesService.getMovieVideos(this.movieId).subscribe((data) => {
+      console.log(data, 'videos');
+      if (data) {
+        this.videos = data;
+      }
+    });
+  }
+
+  getMovieImages() {
+    this.moviesService.getMovieImages(this.movieId).subscribe((data) => {
+      console.log(data, 'images');
+      if (data) {
+        this.images = data;
+      }
+    });
+  }
+
+  getMovieRecommendations() {
+    this.moviesService
+      .getMovieRecommendations(this.movieId)
+      .subscribe((data) => {
+        console.log(data, 'recommendations');
+        if (data) {
+          this.recommendations = data;
+        }
+      });
   }
 }

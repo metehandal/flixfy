@@ -1,7 +1,7 @@
 <ion-header class="detailHeader ion-no-border">
   <ion-toolbar class="ion-no-border">
     <ion-buttons slot="start">
-      <ion-back-button color="light" defaultHref="/movies"></ion-back-button>
+      <ion-back-button color="light"></ion-back-button>
     </ion-buttons>
 
     <ion-buttons slot="end">
@@ -23,25 +23,117 @@
 
     <div class="movieDetails">
       <div class="title">
-        <h1>{{ movieData?.title }}</h1>
-        <span> IMDb {{ movieData?.vote_average | number : "1.1-1" }} </span>
+        <div>
+          <h1>{{ movieData?.title }}</h1>
+        </div>
+        <div class="vote">
+          <ion-icon name="star" color="warning"></ion-icon>
+          <span>{{ movieData?.vote_average | number : "1.1-1" }}</span>
+        </div>
       </div>
 
+      <div class="bread-crumbs">
+        <ion-breadcrumbs>
+          <ion-breadcrumb href="/tabs/home"> Home </ion-breadcrumb>
+          <ion-breadcrumb href="/movies"> Movies </ion-breadcrumb>
+          <ion-breadcrumb href="/movies/{{ movieData?.id }}">
+            {{ movieData?.title }}
+          </ion-breadcrumb>
+        </ion-breadcrumbs>
+      </div>
+      <div class="overview">
+        <p>{{ movieData?.overview }}</p>
+      </div>
       <div class="genres">
         <span *ngFor="let genre of movieData?.genres"> {{ genre.name }} </span>
       </div>
 
-      <div class="overview">
-        <p>{{ movieData?.overview }}</p>
-
-        <div class="release">
-          <span>Release Date: {{ movieData?.release_date }}</span>
-
-          <span>Popularity: {{ movieData?.popularity }}</span>
-
-          <span>Vote Count: {{ movieData?.vote_count }}</span>
-        </div>
+      <div class="actions">
+        <ion-button color="flixfy-main" expand="block"
+          >Watch Trailer</ion-button
+        >
+        <ion-button color="danger" expand="block">Watch Now</ion-button>
       </div>
     </div>
+
+    <!-- <div class="trailer">
+      <iframe
+        width="100%"
+        height="100%"
+        [src]="'https://www.youtube.com/embed/' + movieData?.videos.results[0].key"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div> -->
+
+    <div class="credits">
+      <div class="cast">
+        <h3>Cast</h3>
+        <swiper-container [spaceBetween]="10" [slidesPerView]="2">
+          @for (cast of credits?.cast; track $index) {
+          <swiper-slide *ngIf="cast.profile_path">
+            <ion-item lines="none">
+              <ion-avatar slot="start">
+                <img
+                  *ngIf="cast.profile_path"
+                  [src]="'https://image.tmdb.org/t/p/original/' + cast.profile_path"
+                  alt="cast.name"
+                />
+              </ion-avatar>
+
+              <ion-label>
+                <h2>{{ cast.name }}</h2>
+                <p>{{ cast.character }}</p>
+              </ion-label>
+            </ion-item>
+          </swiper-slide>
+          }
+        </swiper-container>
+      </div>
+
+      <div class="crew">
+        <h3>Crew</h3>
+        <swiper-container [spaceBetween]="10" [slidesPerView]="2">
+          @for (crew of credits?.crew; track $index) {
+          <swiper-slide *ngIf="crew.profile_path">
+            <ion-item lines="none">
+              <ion-avatar slot="start">
+                <img
+                  *ngIf="crew.profile_path"
+                  [src]="'https://image.tmdb.org/t/p/original/' + crew.profile_path"
+                  alt="crew.name"
+                />
+              </ion-avatar>
+
+              <ion-label>
+                <h2>{{ crew.name }}</h2>
+                <p>{{ crew.job }}</p>
+              </ion-label>
+            </ion-item>
+          </swiper-slide>
+          }
+        </swiper-container>
+      </div>
+    </div>
+
+    <!-- <div class="productionComp">
+      <h2>Production Companies</h2>
+      <div class="production">
+        <swiper-container [spaceBetween]="10">
+          <swiper-slide *ngFor="let company of movieData?.production_companies">
+            <div class="company">
+              <img
+                *ngIf="company.logo_path"
+                [src]="'https://image.tmdb.org/t/p/original/' + company.logo_path"
+                alt="company.name"
+              />
+
+              <h3>{{ company.name }}</h3>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div> -->
   </div>
 </ion-content>

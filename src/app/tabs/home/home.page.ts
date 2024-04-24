@@ -27,7 +27,6 @@ export class HomePage implements OnInit, AfterViewInit {
 
   constructor(
     private moviesService: MoviesService,
-    private pickerCtrl: PickerController,
     private route: Router,
     private modalCtrl: ModalController
   ) {}
@@ -37,6 +36,10 @@ export class HomePage implements OnInit, AfterViewInit {
       // Any calls to load data go here
       event.target.complete();
     }, 2000);
+  }
+
+  goMovieDetails(movieId: number) {
+    this.route.navigate(['/movies', movieId]);
   }
 
   onIonChange(event: CustomEvent) {
@@ -75,7 +78,6 @@ export class HomePage implements OnInit, AfterViewInit {
 
     await modal.present();
 
-    // const picker = await this.pickerCtrl.create({
     //   columns: [
     //     {
     //       name: 'categories',

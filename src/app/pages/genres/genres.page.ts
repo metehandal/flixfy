@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -13,7 +13,8 @@ export class GenresPage implements OnInit {
   genre: any;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private route: Router
   ) {
     this.activatedRoute.params.subscribe((params: any) => {
       this.genreId = params.genreId;
@@ -28,5 +29,9 @@ export class GenresPage implements OnInit {
     this.moviesService.getMoviesByGenre(genreId).subscribe((data) => {
       this.genre = data.results;
     });
+  }
+
+  goMovieDetails(movieId: number) {
+    this.route.navigate(['/movies', movieId]);
   }
 }
