@@ -58,9 +58,14 @@ The app uses the [TMDB](https://www.themoviedb.org/) API to list popular, top-ra
 git clone https://github.com/metehandal/flixfy.git
 cd flixfy
 
+```
+
 ```bash
 # Bağımlılıkları yükle
 npm install
+```
 
+```bash
 # Geliştirme sunucusunu başlat
 npm start
+```
