@@ -1,28 +1,62 @@
-# 🎬 Flixfy – Film Keşfetme Uygulaması | Movie Discovery App
+# 🎬 Flixfy
 
 ![Demo](assets/videos/demo.gif)
 
-## 🇹🇷 Türkçe Açıklama
+Flixfy, **Angular** ve **Ionic** ile geliştirilmiş bir mobil film keşif uygulamasıdır.  
+Flixfy is a mobile movie discovery app developed using **Angular** and **Ionic**.
 
-**Flixfy**, Angular ve Ionic kullanılarak geliştirilmiş modern bir film keşif uygulamasıdır. Uygulama, [TMDB (The Movie Database)](https://www.themoviedb.org/) API’sini kullanarak popüler, en çok oy alan ve vizyona girecek filmleri kullanıcıya sunar.
+Uygulama, [TMDB (The Movie Database)](https://www.themoviedb.org/) API’sinden verileri alarak popüler, en yüksek puanlı ve vizyona girecek filmleri listeler.  
+The app uses the [TMDB](https://www.themoviedb.org/) API to list popular, top-rated, and upcoming movies.
 
-### 🚀 Özellikler
+---
 
-- 🎞 Popüler, yeni çıkan ve en yüksek puanlı filmleri listeleme  
-- 🔍 Film detaylarını görüntüleme  
-- 📱 Android desteği (Capacitor ile)  
-- ⚡️ Hızlı ve kullanıcı dostu arayüz  
-- 🧭 Mobil uyumlu tasarım
+## 📱 Ekran Görüntüleri | Screenshots
 
-### 🧰 Kullanılan Teknolojiler
+> Demo için yukarıdaki gif'e göz atabilirsiniz.  
+> See the animated demo gif above for a preview.
 
-- **Framework:** Angular 17, Ionic 8  
-- **Mobil:** Capacitor 6  
-- **API:** TMDB  
-- **UI:** Ionicons, Swiper  
-- **Kod Kalitesi:** ESLint, Jasmine, Karma
+---
 
-### 🔧 Kurulum (Local’de Çalıştırmak İçin)
+## 🚀 Özellikler | Features
+
+- 🎞 Popüler, en yüksek puanlı ve vizyona girecek filmleri keşfet  
+  → Discover popular, top-rated, and upcoming movies  
+- 🔍 Film detay sayfası  
+  → Detailed movie information page  
+- 📱 Mobil uyumlu tasarım (Ionic)  
+  → Mobile responsive design (Ionic)  
+- 🌙 Karanlık mod desteği  
+  → Dark mode support  
+- 🧭 Sekmeli gezinme (tab-based navigation)  
+  → Tab-based navigation  
+- 📡 Gerçek zamanlı veri TMDB API üzerinden alınır  
+  → Real-time data fetched via TMDB API  
+- 🚀 Android için hazır (Capacitor ile)  
+  → Ready for Android (via Capacitor)
+
+---
+
+## 🧰 Kullanılan Teknolojiler | Built With
+
+| Teknoloji | Açıklama |  
+|-----------|----------|  
+| **Angular 17** | Web uygulama çatısı (framework) |  
+| **Ionic 8** | Mobil uyumlu UI bileşenleri |  
+| **Capacitor 6** | Native uygulama desteği |  
+| **TMDB API** | Film verileri kaynağı |  
+| **Swiper** | Slider yapıları için |  
+| **Ionicons** | Uygulama içi ikonlar |  
+| **ESLint, Jasmine, Karma** | Kod kalitesi ve testler |
+
+---
+
+## 📦 Projeyi Çalıştırma | Getting Started
+
+### 1. Klonla | Clone the Repository
+
+```bash
+git clone https://github.com/metehandal/flixfy.git
+cd flixfy
 
 ```bash
 # Bağımlılıkları yükle
