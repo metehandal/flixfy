@@ -1,3 +1,3 @@
-## Demo Videosu
+## Demo
 
-📽 [Videoyu buradan izleyin](assets/videos/document_5814224372512070689.mp4)
+![Demo](assets/gif/demo.gif)
