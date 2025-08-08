@@ -1,3 +1,3 @@
 ## Demo
 
-![Demo](assets/gif/demo.gif)
+![Demo](assets/videos/demo.gif)
